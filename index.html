@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              white: 'hsl(0, 0%, 100%)',
+              lightPink: 'hsl(275, 100%, 97%)',
+              grayishPurple: 'hsl(292, 16%, 49%)',
+              darkPurple: 'hsl(292, 42%, 14%)',
+            },
+            fontFamily: {
+              sans: ['Work Sans', 'sans-serif'],
+            },
+            screens: {
+              desktop: '768px',
+            },
+            transitionProperty: {
+              height: 'height',
+            },
+          },
+        },
+      };
+    </script>
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png" />
+
+    <title>Frontend Mentor | FAQ accordion</title>
+  </head>
+  <body>
+    <div class="relative bg-lightPink flex justify-center w-full min-h-screen">
+      <img
+        class="absolute top-0 w-full hidden desktop:block"
+        src="./assets/images/background-pattern-desktop.svg" />
+      <img
+        class="absolute top-0 w-full desktop:hidden"
+        src="./assets/images/background-pattern-mobile.svg" />
+      <div
+        class="w-fit mx-4 desktop:w-[650px] mt-44 mb-8 h-fit bg-white rounded-xl p-4 md:p-8 z-10 shadow-xl shadow-grayishPurple/20">
+        <h1 class="text-4xl font-bold mb-4 md:mb-8">
+          <img
+            src="./assets/images/icon-star.svg"
+            class="inline-block mr-4" />FAQs
+        </h1>
+        <h3 class="accordion font-semibold mb-2 flex justify-between">
+          What is Frontend Mentor, and how will it help me?
+          <img
+            class="toggle-icon cursor-pointer"
+            src="./assets/images/icon-plus.svg" />
+        </h3>
+        <p
+          class="accordion-content max-h-0 overflow-hidden mb-2 md:mb-4 transition-max-height duration-1000 ease">
+          Frontend Mentor offers realistic coding challenges to help developers
+          improve their frontend coding skills with projects in HTML, CSS, and
+          JavaScript. It's suitable for all levels and ideal for portfolio
+          building.
+        </p>
+        <h3
+          class="accordion font-semibold mb-2 flex justify-between border-t-2 border-grey-500 pt-6">
+          Is Frontend Mentor free?
+          <img
+            class="toggle-icon cursor-pointer"
+            src="./assets/images/icon-plus.svg" />
+        </h3>
+        <p
+          class="accordion-content max-h-0 overflow-hidden mb-2 md:mb-4 transition-max-height duration-1000 ease">
+          Yes, Frontend Mentor offers both free and premium coding challenges,
+          with the free option providing access to a range of projects suitable
+          for all skill levels.
+        </p>
+        <h3
+          class="accordion font-semibold mb-2 flex justify-between border-t-2 border-grey-500 pt-6">
+          Can I use Frontend Mentor projects in my portfolio?
+          <img
+            class="toggle-icon cursor-pointer"
+            src="./assets/images/icon-plus.svg" />
+        </h3>
+        <p
+          class="accordion-content max-h-0 overflow-hidden mb-2 md:mb-4 transition-max-height duration-1000 ease">
+          Yes, you can use projects completed on Frontend Mentor in your
+          portfolio. It's an excellent way to showcase your skills to potential
+          employers!
+        </p>
+        <h3
+          class="accordion font-semibold mb-2 flex justify-between border-t-2 border-grey-500 pt-6">
+          How can I get help if I'm stuck on a Frontend Mentor challenge?
+          <img
+            class="toggle-icon cursor-pointer"
+            src="./assets/images/icon-plus.svg" />
+        </h3>
+        <p
+          class="accordion-content max-h-0 overflow-hidden mb-2 md:mb-4 transition-max-height duration-1000 ease">
+          The best place to get help is inside Frontend Mentor's Discord
+          community. There's a help channel where you can ask accordions and
+          seek support from other community members.
+        </p>
+      </div>
+    </div>
+
+    <div class="attribution text-center bg-grayishPurple py-2">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by
+      <a class="text-white" href="https://github.com/ridhoriky">ridhoriky</a>.
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const accordions = document.querySelectorAll('.accordion');
+
+        accordions.forEach(function (accordion) {
+          accordion.addEventListener('click', function () {
+            const icon = accordion.querySelector('.toggle-icon');
+            const iconPlus = icon.getAttribute('src');
+            const iconMinus = iconPlus.includes('icon-plus')
+              ? './assets/images/icon-minus.svg'
+              : './assets/images/icon-plus.svg';
+            icon.setAttribute('src', iconMinus);
+
+            const content = accordion.nextElementSibling;
+
+            content.classList.toggle('max-h-60');
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
