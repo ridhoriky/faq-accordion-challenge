@@ -31,9 +31,7 @@ Users should be able to:
 - Solution URL: [Github](https://github.com/ridhoriky/faq-accordion-challenge)
 - Live Site URL: [AFaq Accordion Challenge]([https://your-live-site-url.com](https://faq-accordion-challenge-mu.vercel.app/))
 
-## My process
-
-### Built with
+## Built with
 
 - HTML5
 - TailwindCSS
